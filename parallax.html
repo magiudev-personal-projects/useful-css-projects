@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            --parallax-height: 400px;
+            --moon-diameter: 150px;
+            --ufo-width: 50px;
+            --ufo-height: calc(var(--ufo-width)/2);
+
+        }
+
+        /* Parallax scroll effect */
+        .main-container {
+
+            /* Ensures scrolling is done within the parent container */
+            width: 100%;
+            height: 100vh;
+            overflow-y: scroll;
+
+            /* Set the perspective */
+            perspective: 10px;
+            perspective-origin: center calc(var(--parallax-height)/2);
+        }
+        .parallax-container {
+            transform-style: preserve-3d; /* Allow children to make 3d transforms https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateZ */
+            position: relative;
+            height: var(--parallax-height);
+            background-color: #222;
+        }
+        .moon-container, .ufo-container {
+            position: absolute;
+            width: 100%;
+            height: var(--parallax-height);
+        }
+        .moon-container {
+            transform: translateZ(2px) scale(.8);
+        }
+        .ufo-container {
+            transform: translateZ(4px) scale(.6);
+        }
+
+        /* Appearance and position of the elements */
+        .moon {
+            width: var(--moon-diameter);
+            height: var(--moon-diameter);
+            border-radius: 50%;
+            background-color: whitesmoke;
+            position: absolute;
+            left: 50vw;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px white;
+        }
+        .ufo {
+            width: var(--ufo-width);
+            height: var(--ufo-height);
+            border-radius: 50%;
+            background-color: green;
+            position: absolute;
+            left: 50vw; 
+            bottom: 60px;
+            transform: translateX(-50%);
+        }
+        .non-parallax-container{
+            padding: 10vw;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="parallax-container">
+            <div class="moon-container">
+                <div class="moon"></div>
+            </div>
+            <div class="ufo-container">
+                <div class="ufo"></div>
+            </div>
+        </div>
+        <div class="non-parallax-container">
+            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac est eleifend, egestas neque et, viverra tellus. Phasellus viverra urna eget lorem lobortis, vitae luctus nibh eleifend. Vivamus risus quam, iaculis et elit vitae, mollis consequat nunc. Praesent convallis interdum pellentesque. Integer egestas urna vel nibh ultricies gravida. Proin urna neque, convallis eu tempor eget, porttitor at ex. Proin venenatis elit justo, a tempor ligula hendrerit ultrices. Vivamus ac iaculis mauris. Vestibulum in tempus lectus, eu malesuada erat. Vivamus condimentum porttitor tellus, id porttitor sapien rhoncus luctus.
+                Nulla cursus ipsum eu ex accumsan, a viverra neque iaculis. Aenean augue arcu, lobortis vehicula rhoncus eget, lobortis id ex. Cras blandit molestie quam. Vestibulum varius non justo quis sagittis. Pellentesque ac molestie metus, et auctor massa. Etiam purus orci, dapibus nec dapibus id, dictum nec ipsum. Sed dapibus ex mauris, eget interdum libero dapibus vel. Fusce cursus tempor tortor. In auctor sagittis tristique. Vestibulum dignissim, felis ac vehicula rutrum, dolor dolor scelerisque lectus, in laoreet nunc neque in erat. Duis efficitur felis ligula, vel dictum mi ultrices vel.
+                Nulla fermentum ex sit amet lorem commodo ultricies. Suspendisse id sagittis arcu. Sed commodo quam auctor tortor mattis congue. Quisque vitae sodales mi, eu vehicula urna. Duis enim nisl, pellentesque non dictum vitae, gravida ut dolor. Integer porttitor, libero nec vehicula ullamcorper, libero mi cursus velit, eu aliquam dolor dolor id dui. Etiam diam enim, tempor at mi vel, auctor maximus metus. Quisque ut ipsum tempus, tincidunt lacus eu, semper nisi. Aenean feugiat, nunc et euismod pretium, quam orci pulvinar magna, ac eleifend libero leo in augue. Praesent sollicitudin magna sem, quis sollicitudin quam vulputate quis.
+                Aliquam nec tellus consectetur, pharetra ligula eget, aliquam lacus. Vivamus in ultrices metus, et ullamcorper nulla. Quisque ultrices id felis eget eleifend. Morbi faucibus blandit urna, ut consequat odio sodales a. Fusce mauris magna, mattis eu volutpat ac, pharetra hendrerit lacus. Suspendisse laoreet tortor pretium justo euismod, eu iaculis ante aliquet. Fusce ultrices blandit nunc quis interdum. Fusce nec dignissim arcu. Integer aliquet volutpat ligula, eget consectetur ex imperdiet volutpat. Proin eu pharetra diam. Nam lacinia, velit ac venenatis ornare, risus dolor fermentum purus, ut mollis nibh lacus eget nisl. Ut ultricies, dolor vestibulum porta commodo, nulla nunc bibendum ipsum, vitae pretium leo justo vel nibh. Cras feugiat faucibus lorem, ac lobortis elit mollis ac. Morbi iaculis vulputate mauris, sit amet laoreet purus. Phasellus sit amet dapibus libero.
+                Nullam et fringilla nisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam in ante ut est lacinia elementum et a velit. Nunc blandit nunc quam, id malesuada nibh pellentesque varius. Nullam euismod volutpat risus non placerat. Duis convallis ligula ipsum, at convallis erat fringilla quis. Nunc quis dui at neque consequat malesuada sit amet vel magna. Ut nec augue blandit turpis cursus consectetur. Vivamus consectetur nisi eu nulla commodo, ut fermentum est bibendum. Pellentesque iaculis lacus sed nisi laoreet sollicitudin. Praesent ac ex at mauris bibendum viverra. Proin vitae odio tempor, tristique sem eget, porttitor ipsum. Nulla pharetra eros nec diam maximus, quis blandit lacus vestibulum.</p>
+        </div>
+    </div>
+</body>
+</html>
+<!-- TODO
+    1. Fix browser compatibility
+    2. Fix moon/ufo-container displaced
+
+-->
